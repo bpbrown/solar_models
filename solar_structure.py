@@ -37,8 +37,6 @@ Primary formatting changes were to turn the header row into comments and to remo
 
 Vernazza, J. E., Avrett, E. H., & Loeser, R. 1981, ApJS, 45, 635 (VAL)
 """
-
-import numpy as np
 import pandas as pd
 
 # model S data and tools
