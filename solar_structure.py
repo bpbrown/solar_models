@@ -63,7 +63,6 @@ def read_model_S_GONG_format(file=model_S_GONG):
         if i==4: # header line that contains: nn, iconst, ivar, ivers
             nn, iconst, ivar, ivers = list(map(int,line.split()))
     f.close()
-    print('header info: {:d}, {:d}, {:d}, {:d}'.format(nn, iconst, ivar, ivers))
 
     # read in global model parameters
     global_parameters = pd.read_fwf(file, skiprows=4, nrows=3, widths=[16 for i in range(5)])
@@ -78,7 +77,7 @@ def read_model_S_GONG_format(file=model_S_GONG):
     # reshape and label; only the first 25 variables from the documentation are used
     col_names = ['r', 'ln q', 'T', 'p', 'ρ',
                  'X', 'L', 'κ', 'ε', 'Γ1',
-                 'grad_ad', 'δ', 'c_P', 'μ_e_inv', 'entropy',
+                 'grad_ad', 'δ', 'c_P', 'μ_e_inv', 'entropy_gradient',
                  'rx', 'Z', 'R-r', 'ε_g', 'L_g',
                  'X3He', 'X12C', 'X13C', 'X14N', 'X16O']
     data = pd.DataFrame(data.values.reshape(len(data)//5, ivar), columns=col_names)
